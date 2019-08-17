@@ -1,1 +1,12 @@
-<p>movie-list works!</p>
+<div class="movieListContainer">
+  <div class="movieListLabels">
+    <div class="titleLabel">Title</div>
+    <div class="yearLabel">Year</div>
+    <div class="ratingLabel">Rating</div>
+  </div>
+  <app-movie-list-item
+    *ngFor="let movieEl of movies"
+    [movie]="movieEl">
+  </app-movie-list-item>
+</div>
+
