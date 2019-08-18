@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { MovieService } from './movie.service';
 
@@ -8,12 +8,17 @@ import { MovieService } from './movie.service';
   styleUrls: ['./movie-list.component.sass']
 })
 export class MovieListComponent implements OnInit {
-
   movies = this.movieService.movies;
+  @ViewChild('sort', { static: false }) sort: ElementRef;
+  modifiedSort = 'title';
 
   constructor(public movieService: MovieService) { }
 
   ngOnInit() {
+  }
+
+  setSortFilter() {
+    this.modifiedSort = this.sort.nativeElement.value;
   }
 
 }
