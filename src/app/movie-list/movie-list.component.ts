@@ -11,6 +11,7 @@ export class MovieListComponent implements OnInit {
   movies = this.movieService.movies;
   @ViewChild('sort', { static: false }) sort: ElementRef;
   modifiedSort = 'title';
+  filterText = '';
 
   constructor(public movieService: MovieService) { }
 

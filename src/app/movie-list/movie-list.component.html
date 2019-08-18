@@ -1,5 +1,9 @@
 <div class="movieFilters">
-  <input class="movieSearch" type="text" placeholder="Movie">
+  <input
+    class="movieSearch"
+    type="text"
+    placeholder="Movie"
+    [(ngModel)]="filterText">
   <select class="sort" #sort (change)="setSortFilter()">
     <option value="title">Title</option>
     <option value="year">Year</option>
@@ -13,7 +17,7 @@
     <div class="ratingLabel">Rating</div>
   </div>
   <app-movie-list-item
-    *ngFor="let movieEl of movies | sortBy: this.modifiedSort"
+    *ngFor="let movieEl of movies | filter: this.filterText | sortBy: this.modifiedSort "
     [movie]="movieEl">
   </app-movie-list-item>
 </div>
