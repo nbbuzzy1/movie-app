@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 import { Movie } from './movie.model';
 
@@ -6,7 +7,7 @@ import { Movie } from './movie.model';
   providedIn: 'root'
 })
 export class MovieService {
-
+  moviesChanged = new Subject<Movie[]>()
   movies: Movie[] = [
     {
       title: 'The Godfather',
