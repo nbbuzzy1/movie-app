@@ -15,6 +15,7 @@
     <div class="titleLabel">Title</div>
     <div class="yearLabel">Year</div>
     <div class="ratingLabel">Rating</div>
+    <div class="deleteLabel"></div>
   </div>
   <app-movie-list-item
     *ngFor="let movieEl of movies | filter: this.filterText | sortBy: this.modifiedSort "

@@ -16,4 +16,11 @@ export class MoviesService {
   addMovies(movie: Movie) {
     this.movieService.movies.push(movie);
   }
+
+  deleteMovie(movieTitle) {
+    const deletedMovie = this.movieService.movies.filter((movie) => movie.title === movieTitle)[0];
+    const deletedIndex = this.movieService.movies.indexOf(deletedMovie);
+    this.movieService.movies.splice(deletedIndex, 1);
+
+  }
 }

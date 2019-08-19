@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from '../movie.model';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movie-list-item',
@@ -8,9 +9,13 @@ import { Movie } from '../movie.model';
 })
 export class MovieListItemComponent implements OnInit {
   @Input() movie: Movie;
-  constructor() { }
+  constructor(public moviesService: MoviesService) { }
 
   ngOnInit() {
+  }
+
+  onDeleteMovie() {
+    this.moviesService.deleteMovie(this.movie.title);
   }
 
 }
